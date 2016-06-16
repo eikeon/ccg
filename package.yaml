@@ -1,0 +1,68 @@
+# This YAML file describes your package. Stack will automatically generate a
+# Cabal file when you run `stack build`. See the hpack website for help with
+# this file: <https://github.com/sol/hpack>.
+benchmarks:
+  ccg-benchmarks:
+    dependencies:
+    - base
+    - ccg
+    - criterion
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    main: Main.hs
+    source-dirs: benchmark
+category: Parsing
+description: Semantic Parsing with Combinatory Categorial Grammars
+executables:
+  ccg:
+    dependencies:
+    - base
+    - ccg
+    - blaze-html
+    - blaze-markup
+    - containers
+    - morte
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    main: Main.hs
+    source-dirs: executable
+extra-source-files:
+- CHANGELOG.md
+- LICENSE.md
+- package.yaml
+- README.md
+- stack.yaml
+ghc-options: -Wall
+github: eikeon/ccg
+library:
+  dependencies:
+  - base
+  - containers
+  - morte
+  - transformers
+  - text
+  - text-format
+  source-dirs: library
+license: MIT
+maintainer: Daniel Krech
+name: ccg
+synopsis: Semantic Parsing with Combinatory Categorial Grammars
+stability: experimental
+tests:
+  ccg-test-suite:
+    dependencies:
+    - base
+    - ccg
+    - tasty
+    - tasty-hspec
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+    main: Main.hs
+    source-dirs: test-suite
+version: '0.0.0'
